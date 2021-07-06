@@ -54,21 +54,23 @@
     <!-- Search Text Box -->
     <div class="row logged-in" style = "display: none;">
       <form class="col s12 margin-top-2">
-        <div class="row">
-          <div class="input-field col s12 m8">
+        <div class="row" style="margin-bottom: 0px;">
+          <div class="input-field col s9 m10">
             <input id="textBoxSearch" type="text" class="validate">
             <label for="textBoxSearch" >Search</label>
           </div>
-          <div class="input-field col s4 m2 offset-s4">
+          <div class="input-field col s3 m2">
+          <a class="waves-effect waves-light btn" id = "logoutButton">Logout</a>
+        </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s3 offset-s8 ">
             <a class = "dropdown-trigger" data-target = "dropdownList">
             <select id="filter">
             </select>
           </a>
             <label id="filterLabel"></label>
           </div>
-          <div class="input-field col s4 m2">
-          <a class="waves-effect waves-light btn" id = "logoutButton">Logout</a>
-        </div>
         </div>
       </form>
     </div>
