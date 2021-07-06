@@ -107,17 +107,17 @@ function showList() {
 
   const html1 = `
 
-  <div>All</div>
+  <div>Filter: All</div>
 
   `;
 
   filterName.innerHTML = html1;
 
-  dropdownAll.classList.add('grey');
+  /*dropdownAll.classList.add('grey');
   dropdownAll.classList.add('lighten-1');
 
   dropdownCompleted.classList.remove('grey');
-  dropdownCompleted.classList.remove('ligthen-1'); 
+  dropdownCompleted.classList.remove('ligthen-1');*/
 
   db.collection(window.loginEmail).get().then(snapshot => {
 
@@ -473,29 +473,73 @@ function completePressed(completedId) {
 
 }
 
-const dropdownAll = document.getElementById('filterAll');
+//const dropdownAll = document.getElementById('filterAll');
+
+const dropdownSelection = document.getElementById('filter');
 
 const filterName = document.getElementById('filterLabel');
 
-dropdownAll.addEventListener('click', (e) => {
+dropdownSelection.addEventListener('click', (e) => {
 
   e.preventDefault();
 
-  window.dropdownFilter = "All";
+  if (window.dropdownFilter == 'All') {
+
+  window.dropdownFilter = "Completed";
 
   const html2 = `
 
-  <div>All</div>
+  <div>Filter: Completed</div>
 
   `;
 
   filterName.innerHTML = html2;
 
-  dropdownAll.classList.add('grey');
+  /*dropdownAll.classList.add('grey');
   dropdownAll.classList.add('lighten-1');
 
   dropdownCompleted.classList.remove('grey');
-  dropdownCompleted.classList.remove('ligthen-1');
+  dropdownCompleted.classList.remove('ligthen-1');*/
+
+  db.collection(window.loginEmailCompleted).get().then(snapshot => {
+
+    if (snapshot.empty) {
+
+      console.log('empty');
+
+      setupDocsEmpty();
+
+    } else {
+
+      console.log('not empty');
+
+    snapshot.docs.forEach(doc => {
+
+      setupDocs(snapshot.docs);
+
+    });
+
+  }
+
+  });
+
+} else if (window.dropdownFilter == 'Completed') {
+
+  window.dropdownFilter = 'All';
+
+  const html3 = `
+
+  <div>Filter: All</div>
+
+  `;
+
+  filterName.innerHTML = html3;
+
+  /*dropdownAll.classList.add('grey');
+  dropdownAll.classList.add('lighten-1');
+
+  dropdownCompleted.classList.remove('grey');
+  dropdownCompleted.classList.remove('ligthen-1');*/
 
   db.collection(window.loginEmail).get().then(snapshot => {
 
@@ -519,9 +563,11 @@ dropdownAll.addEventListener('click', (e) => {
 
   });
 
+}
+
 });
 
-const dropdownCompleted = document.getElementById('filterCompleted');
+/*const dropdownCompleted = document.getElementById('filterCompleted');
 
 dropdownCompleted.addEventListener('click', (e) => {
 
@@ -565,4 +611,4 @@ dropdownCompleted.addEventListener('click', (e) => {
 
   });
 
-});
+});*/

@@ -55,31 +55,29 @@
     <div class="row logged-in" style = "display: none;">
       <form class="col s12 margin-top-2">
         <div class="row" style="margin-bottom: 0px;">
-          <div class="input-field col s9 m10">
+          <div class="input-field col s12 m8">
             <input id="textBoxSearch" type="text" class="validate">
             <label for="textBoxSearch" >Search</label>
+          </div>
+          <div class="input-field col s5 m2 offset-s4">
+            <a id="filter">
+            <select>
+            </select>
+          </a>
+            <label id="filterLabel"></label>
           </div>
           <div class="input-field col s3 m2">
           <a class="waves-effect waves-light btn" id = "logoutButton">Logout</a>
         </div>
       </div>
-      <div class="row">
-          <div class="input-field col s12 ">
-            <a class = "dropdown-trigger" data-target = "dropdownList">
-            <select id="filter">
-            </select>
-          </a>
-            <label id="filterLabel"></label>
-          </div>
-        </div>
       </form>
     </div>
 
-    <ul id='dropdownList' class='dropdown-content'>
+    <!-- <ul id='dropdownList' class='dropdown-content'>
       <li><a id="filterAll" class="grey lighten-1 black-text">All</a></li>
       <li class="divider" tabindex="-1"></li>
       <li><a id="filterCompleted" class="black-text">Completed</a></li>
-    </ul>
+    </ul>-->
 
     <!-- List of People-->
     <div class="logged-in" style = "display: none;">
@@ -152,7 +150,7 @@
 
     db.settings({ timestampsInSnapshots: true });
 
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION); 
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
   </script>
 
