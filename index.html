@@ -152,6 +152,8 @@
 
     db.settings({ timestampsInSnapshots: true });
 
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION); 
+
   </script>
 
   <script src="scripts/materialize.js"></script>
