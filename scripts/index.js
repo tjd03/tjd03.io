@@ -6,9 +6,9 @@ let html = '';
 
 const setupDocs = (data) => {
 
-  dropdownOptions = document.getElementById('filter').value;
+  //dropdownOptions = document.getElementById('filter').value;
 
-  if (dropdownOptions == "All") {
+  if (window.dropdownFilter == "All") {
 
   window.namesIdArray = [];
 
@@ -33,7 +33,7 @@ const setupDocs = (data) => {
 
   docList.innerHTML = html;
 
-} else if (dropdownOptions == "Completed") {
+} else if (window.dropdownFilter == "Completed") {
 
   window.namesIdArray = [];
 
@@ -103,6 +103,22 @@ function showList() {
 
   window.namesId = [];
 
+  window.dropdownFilter = "All";
+
+  const html1 = `
+
+  <div>All</div>
+
+  `;
+
+  filterName.innerHTML = html1;
+
+  dropdownAll.classList.add('grey');
+  dropdownAll.classList.add('lighten-1');
+
+  dropdownCompleted.classList.remove('grey');
+  dropdownCompleted.classList.remove('ligthen-1'); 
+
   db.collection(window.loginEmail).get().then(snapshot => {
 
       if (snapshot.empty) {
@@ -128,7 +144,7 @@ function showList() {
 
     }
 
-      window.dropdownSelect = "All";
+      //window.dropdownSelect = "All";
 
     });
 
@@ -151,7 +167,7 @@ let searchBar = document.querySelector('#textBoxSearch');
 
 searchBar.addEventListener('input', function() {
 
-  if (window.dropdownSelect == 'All') {
+  if (window.dropdownFilter == 'All') {
 
   var newNames = window.namesArray;
   console.log(newNames);
@@ -309,7 +325,7 @@ console.log(window.simplifiedNamesArrayCompleted);
 
 //When the dropdown menu is changed
 
-function dropdownOption() {
+/*function dropdownOption() {
 
   window.dropdownSelect = document.getElementById('filter').value;
 
@@ -363,7 +379,7 @@ function dropdownOption() {
 
   }
 
-}
+}*/
 
 function completedPressed(buttonId) {
 
@@ -456,3 +472,97 @@ function completePressed(completedId) {
   });
 
 }
+
+const dropdownAll = document.getElementById('filterAll');
+
+const filterName = document.getElementById('filterLabel');
+
+dropdownAll.addEventListener('click', (e) => {
+
+  e.preventDefault();
+
+  window.dropdownFilter = "All";
+
+  const html2 = `
+
+  <div>All</div>
+
+  `;
+
+  filterName.innerHTML = html2;
+
+  dropdownAll.classList.add('grey');
+  dropdownAll.classList.add('lighten-1');
+
+  dropdownCompleted.classList.remove('grey');
+  dropdownCompleted.classList.remove('ligthen-1');
+
+  db.collection(window.loginEmail).get().then(snapshot => {
+
+    if (snapshot.empty) {
+
+      console.log('empty');
+
+      setupDocsEmpty();
+
+    } else {
+
+      console.log('not empty');
+
+    snapshot.docs.forEach(doc => {
+
+      setupDocs(snapshot.docs);
+
+    });
+
+  }
+
+  });
+
+});
+
+const dropdownCompleted = document.getElementById('filterCompleted');
+
+dropdownCompleted.addEventListener('click', (e) => {
+
+  e.preventDefault();
+
+  window.dropdownFilter = "Completed";
+
+  const html3 = `
+
+  <div>Completed</div>
+
+  `;
+
+  filterName.innerHTML = html3;
+
+  dropdownCompleted.classList.add('grey');
+  dropdownCompleted.classList.add('lighten-1');
+
+  dropdownAll.classList.remove('grey');
+  dropdownAll.classList.remove('ligthen-1');
+
+  db.collection(window.loginEmailCompleted).get().then(snapshot => {
+
+    if (snapshot.empty){
+
+      console.log('empty');
+
+      setupDocsEmpty();
+
+    } else {
+
+      console.log('not empty');
+
+      snapshot.docs.forEach(doc => {
+
+        setupDocs(snapshot.docs);
+
+      });
+
+  }
+
+  });
+
+});

@@ -60,11 +60,11 @@
             <label for="textBoxSearch" >Search</label>
           </div>
           <div class="input-field col s4 m2 offset-s4">
-            <select id="filter" onchange="dropdownOption()">
-              <option>All</option>
-              <option>Completed</option>
+            <a class = "dropdown-trigger" data-target = "dropdownList">
+            <select id="filter">
             </select>
-            <label>Filter</label>
+          </a>
+            <label id="filterLabel"></label>
           </div>
           <div class="input-field col s4 m2">
           <a class="waves-effect waves-light btn" id = "logoutButton">Logout</a>
@@ -72,6 +72,12 @@
         </div>
       </form>
     </div>
+
+    <ul id='dropdownList' class='dropdown-content'>
+      <li><a id="filterAll" class="grey lighten-1 black-text">All</a></li>
+      <li class="divider" tabindex="-1"></li>
+      <li><a id="filterCompleted" class="black-text">Completed</a></li>
+    </ul>
 
     <!-- List of People-->
     <div class="logged-in" style = "display: none;">
