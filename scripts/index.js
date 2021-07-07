@@ -391,9 +391,21 @@ function completedPressed(buttonId) {
 
     const peopleName = snapshot.data().name;
 
+    const peopleEmail = snapshot.data().EmailAddress;
+
+    const peopleProduct = snapshot.data().TypeofProduct;
+
+    const peoplePhoneNumber = snapshot.data().CustomerPhoneNumber;
+
+    const peoplePrice = snapshot.data().Price;
+
     const html1 = `
 
     <div>${peopleName}</div>
+    <div>${peopleEmail}</div>
+    <div>${peopleProduct}</div>
+    <div>${peoplePhoneNumber}</div>
+    <div>${peoplePrice}</div>
 
     `;
 
@@ -411,11 +423,37 @@ function completedButtonPressed(testVariable) {
 
     namesInformation = querySnapshot.data().name;
 
+    emailInformation = querySnapshot.data().EmailAddress;
+
+    productInformation = querySnapshot.data().TypeofProduct;
+
+    phoneNumberInformation = querySnapshot.data().CustomerPhoneNumber;
+
+    priceInformation = querySnapshot.data().Price;
+
     console.log(namesInformation);
+
+    console.log(emailInformation);
+
+    console.log(productInformation);
+
+    console.log(phoneNumberInformation);
+
+    console.log(priceInformation);
 
     db.collection(window.loginEmailCompleted).doc(testVariable).set({
 
-      name: namesInformation
+      name: namesInformation,
+
+      EmailAddress: emailInformation,
+
+      TypeofProduct: productInformation,
+
+      CustomerPhoneNumber: phoneNumberInformation,
+      
+      Price: priceInformation
+
+
 
     }).then(() => {
 
@@ -461,9 +499,21 @@ function completePressed(completedId) {
 
     const peopleName = snapshot.data().name;
 
+    const peopleEmail = snapshot.data().EmailAddress;
+
+    const peopleProduct = snapshot.data().TypeofProduct;
+
+    const peoplePhoneNumber = snapshot.data().CustomerPhoneNumber;
+
+    const peoplePrice = snapshot.data().Price;
+
     const html1 = `
 
     <div>${peopleName}</div>
+    <div>${peopleEmail}</div>
+    <div>${peopleProduct}</div>
+    <div>${peoplePhoneNumber}</div>
+    <div>${peoplePrice}</div>
 
     `;
 
