@@ -385,6 +385,8 @@ function completedPressed(buttonId) {
 
   const peopleInfo = document.querySelector('.peopleDetails');
 
+  const imageInfo = document.querySelector('.imageDetails');
+
   window.testVariable = buttonId;
 
   db.collection(window.loginEmail).doc(buttonId).get().then((snapshot) => {
@@ -399,17 +401,29 @@ function completedPressed(buttonId) {
 
     const peoplePrice = snapshot.data().Price;
 
+    const peopleImage = snapshot.data().TypeofProduct + '-1623.jpg';
+
+    console.log(peopleImage);
+
     const html1 = `
 
-    <div>${peopleName}</div>
-    <div>${peopleEmail}</div>
-    <div>${peopleProduct}</div>
-    <div>${peoplePhoneNumber}</div>
-    <div>${peoplePrice}</div>
+    <div><p>${peopleName}</p></div>
+    <div><p>${peopleEmail}</p></div>
+    <div><p>${peopleProduct}</p></div>
+    <div><p>${peoplePhoneNumber}</p></div>
+    <div><p>${peoplePrice}</p></div>
 
     `;
 
     peopleInfo.innerHTML = html1;
+
+    const html2 = `
+
+    <img width="150" src="images/${peopleImage}">
+
+    `;
+
+    imageInfo.innerHTML = html2;
 
   });
 
@@ -450,7 +464,7 @@ function completedButtonPressed(testVariable) {
       TypeofProduct: productInformation,
 
       CustomerPhoneNumber: phoneNumberInformation,
-      
+
       Price: priceInformation
 
 
@@ -493,6 +507,8 @@ function completePressed(completedId) {
 
   const peopleInfo = document.querySelector('.completedDetails');
 
+  const imageInfo = document.querySelector('.completedImage');
+
   window.testVariable1 = completedId;
 
   db.collection(window.loginEmailCompleted).doc(completedId).get().then((snapshot) => {
@@ -507,17 +523,27 @@ function completePressed(completedId) {
 
     const peoplePrice = snapshot.data().Price;
 
+    const peopleImage = snapshot.data().TypeofProduct + '-1623.jpg';
+
     const html1 = `
 
-    <div>${peopleName}</div>
-    <div>${peopleEmail}</div>
-    <div>${peopleProduct}</div>
-    <div>${peoplePhoneNumber}</div>
-    <div>${peoplePrice}</div>
+    <div><p>${peopleName}</p></div>
+    <div><p>${peopleEmail}</p></div>
+    <div><p>${peopleProduct}</p></div>
+    <div><p>${peoplePhoneNumber}</p></div>
+    <div><p>${peoplePrice}</p></div>
 
     `;
 
     peopleInfo.innerHTML = html1;
+    
+    const html2 = `
+
+    <img width="150" src="images/${peopleImage}">
+
+    `;
+
+    imageInfo.innerHTML = html2;
 
   });
 
