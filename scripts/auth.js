@@ -61,7 +61,11 @@ loginPeople.addEventListener('submit', (e) => {
 
 
 
-  });
+}).catch((error) => {
+
+  alert('Incorrect Password'); 
+
+});
 
 });
 
@@ -105,7 +109,7 @@ const setupInterface = (user) => {
 
     const html3 = `
 
-    <p class = "right-align margin-right-2">Wecome, Frey's Brewing Company</p> 
+    <p class = "right-align margin-right-2">Wecome, Frey's Brewing Company</p>
 
     `
 

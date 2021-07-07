@@ -535,8 +535,8 @@ function completePressed(completedId) {
 
     `;
 
-    peopleInfo.innerHTML = html1;
-    
+    peopleInfo.innerHTML = html1; 
+
     const html2 = `
 
     <img width="150" src="images/${peopleImage}">
