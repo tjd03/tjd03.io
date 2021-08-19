@@ -475,7 +475,7 @@ function completedButtonPressed(testVariable) {
 
         console.log('document successfully deleted');
 
-        window.location.reload(true);
+        window.location.reload(true); 
 
       }).catch((error) => {
 
@@ -535,7 +535,7 @@ function completePressed(completedId) {
 
     `;
 
-    peopleInfo.innerHTML = html1; 
+    peopleInfo.innerHTML = html1;
 
     const html2 = `
 

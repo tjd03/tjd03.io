@@ -2,7 +2,7 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}*/ 
+}*/
 
 footer {
   flex: 1 0 auto;
@@ -24,4 +24,4 @@ footer {
 }
 .margin-right-2 {
   margin-right: 2%;
-}
+} 

@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Modal.init(modal);
 
     var dropdown = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(dropdown); 
+    M.Dropdown.init(dropdown);
 
   });

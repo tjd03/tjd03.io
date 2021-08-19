@@ -63,7 +63,7 @@ loginPeople.addEventListener('submit', (e) => {
 
 }).catch((error) => {
 
-  alert('Incorrect Password'); 
+  alert('Incorrect Password');
 
 });
 
